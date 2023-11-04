@@ -7,9 +7,11 @@ export const ResultPage = (): JSX.Element => {
       <div className="search-section">
         <SearchButton className="search-button" />
         <Input className="search-input" />
-        <Chip className="btn-chip-color-instance" text="#2000년대" />
-        <Chip className="btn-chip-color-2" text="#2010년대" />
-        <Chip className="btn-chip-color-3" text="#2020년대" />
+        <div className="chip-section">
+          <Chip text="#2000년대" />
+          <Chip text="#2010년대" />
+          <Chip text="#2020년대" />
+        </div>  
       </div>
       <div className="result-section">
         <img src="assets/no-result.png"/>

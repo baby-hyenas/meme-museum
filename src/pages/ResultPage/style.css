@@ -30,6 +30,15 @@
   top: 0 !important;
 }
 
+.resultpage .search-section .chip-section {
+  position: absolute !important;
+  top: 88px !important;
+  width: auto;
+  gap: 12px;
+  display: flex;
+  flex-direction: row;
+}
+
 .resultpage .btn-chip-color-instance {
   left: 0 !important;
   position: absolute !important;

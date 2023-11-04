@@ -2,11 +2,10 @@ import React, {useState} from "react";
 import "./style.css";
 
 type ChipProps = {
-	className: string
 	text: string
 }
 
-export const Chip: React.FC<ChipProps> = ({className, text}: ChipProps) => {
+export const Chip: React.FC<ChipProps> = ({text}: ChipProps) => {
 	const [selected, setSelected] = useState<boolean>(false);
 	const [property, setProperty] = useState<"chip-default" | "chip-pressed" | "chip-hover">("chip-default");
 
@@ -23,7 +22,7 @@ export const Chip: React.FC<ChipProps> = ({className, text}: ChipProps) => {
   };
 
 	return (
-		<div className={`btn-chip ${property} ${className}`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleMouseDown}>
+		<div className={`btn-chip ${property}`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleMouseDown}>
 			<div className="text-wrapper">{text}</div>
 		</div>
 	);

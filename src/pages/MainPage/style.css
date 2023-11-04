@@ -35,26 +35,11 @@
   top: 0 !important;
 }
 
-.mainpage .btn-chip-color-instance {
-  left: 0 !important;
+.mainpage .search-section .chip-section {
   position: absolute !important;
   top: 88px !important;
-}
-
-.mainpage .btn-chip-color-2 {
-  left: 110px !important;
-  position: absolute !important;
-  top: 88px !important;
-}
-
-.mainpage .btn-chip-color-3 {
-  left: 371px !important;
-  position: absolute !important;
-  top: 88px !important;
-}
-
-.mainpage .btn-chip-color-4 {
-  left: 192px !important;
-  position: absolute !important;
-  top: 88px !important;
+  width: auto;
+  gap: 12px;
+  display: flex;
+  flex-direction: row;
 }
