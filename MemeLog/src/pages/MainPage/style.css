@@ -1,0 +1,74 @@
+.mainpage {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.mainpage .div-2 {
+  background-color: #ffffff;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainpage .small-logo {
+  left: 60px;
+  position: absolute;
+  top: 60px;
+}
+
+.mainpage .main-logo {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 208px;
+}
+
+.mainpage .search-section {
+  height: 130px;
+  width: 570px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.mainpage .search-button {
+  left: 502px !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.mainpage .search-input {
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.mainpage .btn-chip-color-instance {
+  left: 0 !important;
+  position: absolute !important;
+  top: 88px !important;
+}
+
+.mainpage .btn-chip-color-2 {
+  left: 110px !important;
+  position: absolute !important;
+  top: 88px !important;
+}
+
+.mainpage .btn-chip-color-3 {
+  left: 371px !important;
+  position: absolute !important;
+  top: 88px !important;
+}
+
+.mainpage .btn-chip-color-4 {
+  left: 192px !important;
+  position: absolute !important;
+  top: 88px !important;
+}

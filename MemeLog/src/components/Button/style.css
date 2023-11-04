@@ -1,0 +1,25 @@
+.component {
+  width: 68px;
+  height: 68px;
+  border-radius: 16px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+}
+
+.component.search-default {
+  background-color: #000000;
+}
+
+.component.search-hover {
+  background-color: #5755D5;
+}
+
+.component .union {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  margin: auto;
+}
