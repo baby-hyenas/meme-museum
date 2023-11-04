@@ -23,7 +23,7 @@ export const Chip: React.FC<ChipProps> = ({className, text}: ChipProps) => {
   };
 
 	return (
-		<div className={`btn-chip ${property} ${className}`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onMouseDown={handleMouseDown}>
+		<div className={`btn-chip ${property} ${className}`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleMouseDown}>
 			<div className="text-wrapper">{text}</div>
 		</div>
 	);

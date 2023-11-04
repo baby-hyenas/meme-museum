@@ -3,9 +3,10 @@ import { useState } from "react"
 
 type SmallLogoProps = {
   className: string,
+  onClickLogo: () => void
 }
 
-export const SmallLogo = ({ className }: SmallLogoProps): JSX.Element => {
+export const SmallLogo = ({ className, onClickLogo }: SmallLogoProps): JSX.Element => {
   const [property, setProperty] = useState<"small-logo-a-default" | "small-logo-a-hover">("small-logo-a-default");
 
   const handleMouseOver = () => {
@@ -19,7 +20,9 @@ export const SmallLogo = ({ className }: SmallLogoProps): JSX.Element => {
   return (
     <div className={`small-logo-a ${className} ${property}`}
       onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}>
+      onMouseOut={handleMouseOut}
+      onClick={onClickLogo}>
+
       {property === "small-logo-a-default" &&
         <img className="union" alt="Union" src="assets/logo-light.svg" />}
       {property === "small-logo-a-hover" && (

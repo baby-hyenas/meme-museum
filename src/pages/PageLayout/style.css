@@ -1,0 +1,10 @@
+.page-layout {
+  position: relative;
+}
+
+.page-layout .small-logo {
+  top: 60px;
+  left: 60px;
+  position: absolute;
+  z-index: 10;
+}

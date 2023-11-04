@@ -1,4 +1,4 @@
-import { PageLayout, MainPage } from './pages'
+import { PageLayout, MainPage, ResultPage } from './pages'
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
 
@@ -10,6 +10,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <MainPage/>,
+      },
+      {
+        path: '/result',
+        element: <ResultPage/>,
       },
       {
         path: '/*',
