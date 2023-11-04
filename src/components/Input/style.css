@@ -37,5 +37,5 @@ input::-webkit-search-cancel-button {
   height: 24px;
   width: 24px;
   border-radius: 12px;
-  background-image: url("assets/cancel.png");
+  background-image: url("/assets/cancel.png");
 }
