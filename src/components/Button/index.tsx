@@ -1,17 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 type SearchButtonProps = {
-  className: string
+  onClickedButton?: () => void
 }
 
-export const SearchButton: React.FC<SearchButtonProps> = ({ className }: SearchButtonProps) => {
+export const SearchButton: React.FC<SearchButtonProps> = ({ onClickedButton }: SearchButtonProps) => {
   const [property, setProperty] = useState<"search-default" | "search-hover">("search-default");
-  const navigate = useNavigate();
-  const gotoResult = () => {
-    navigate('/result');
-  };
+
   const handleMouseOver = () => {
     setProperty("search-hover");
   };
@@ -20,11 +16,11 @@ export const SearchButton: React.FC<SearchButtonProps> = ({ className }: SearchB
   };
 
   return (
-    <div className={`component ${property} ${className}`}
+    <div className={`component ${property}`}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      onClick={gotoResult}>
-      <img className="union" alt="Union" src="assets/search.svg" />
+      onClick={onClickedButton}>
+      <div className="union" />
     </div>
   );
 };

@@ -2,9 +2,18 @@
   position: relative;
 }
 
-.page-layout .small-logo {
+.page-layout .pavicon {
   top: 60px;
   left: 60px;
   position: absolute;
   z-index: 10;
+}
+
+@media (max-width: 640px) {
+  .page-layout .pavicon {
+    top: 30;
+    left: 30px;
+    position: absolute;
+    z-index: 10;
+  }
 }

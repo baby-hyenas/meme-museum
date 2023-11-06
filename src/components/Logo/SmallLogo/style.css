@@ -1,59 +1,26 @@
 .small-logo-a {
-    width: 60px;
-    height: 60px;
-    flex-shrink: 0;
-    border-radius: 12px;
-    cursor: pointer;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  background-image: url("/assets/pavicon-default-l.png");
+  background-size: cover;
 }
 
-.small-logo-a .union {
-    height: 33px;
-    left: 16px;
-    position: absolute;
-    top: 14px;
-    width: 27px;
+.small-logo-a:hover {
+  background-image: url("/assets/pavicon-hover-l.png");
 }
 
-.small-logo-a .overlap-group {
-    background-color: #ffffff;
-    height: 60px;
-    position: relative;
-}
+@media (max-width: 640px) {
+  .small-logo-a {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background-image: url("/assets/pavicon-default-s.png");
+  }
 
-.small-logo-a .me-me {
-    text-shadow: calc(2px * 1) 0 0 #000,
-    calc(2px * 0.9239) calc(2px * 0.3827) 0 #000,
-    calc(2px * 0.7071) calc(2px * 0.7071) 0 #000,
-    calc(2px * 0.3827) calc(2px * 0.9239) 0 #000,
-    0 calc(2px * 1) 0 #000,
-    calc(2px * -0.3827) calc(2px * 0.9239) 0 #000,
-    calc(2px * -0.7071) calc(2px * 0.7071) 0 #000,
-    calc(2px * -0.9239) calc(2px * 0.3827) 0 #000,
-    calc(2px * -1) 0 0 #000,
-    calc(2px * -0.9239) calc(2px * -0.3827) 0 #000,
-    calc(2px * -0.7071) calc(2px * -0.7071) 0 #000,
-    calc(2px * -0.3827) calc(2px * -0.9239) 0 #000,
-    0 calc(2px * -1) 0 #000,
-    calc(2px * 0.3827) calc(2px * -0.9239) 0 #000,
-    calc(2px * 0.7071) calc(2px * -0.7071) 0 #000,
-    calc(2px * 0.9239) calc(2px * -0.3827) 0 #000;
-    color: #dcdbff;
-    font-family: "Super Magic", Helvetica;
-    font-size: 25.2px;
-    font-weight: 400;
-    left: 10px;
-    letter-spacing: 0;
-    line-height: 15.5px;
-    position: absolute;
-    text-align: center;
-    top: 12px;
-}
-
-.small-logo-a.small-logo-a-hover {
-    background-color: #ffffff;
-}
-
-.small-logo-a.small-logo-a-default {
-    background-color: #000000;
-    position: relative;
+  .small-logo-a:hover {
+    background-image: url("/assets/pavicon-hover-s.png");
+  }
 }

@@ -18,8 +18,28 @@
 }
 
 .component .union {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
   margin: auto;
+  background-image: url("/assets/icn-search-36dp.svg");
+}
+
+@media (max-width: 640px) {
+  .component {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+  }
+
+  .component .union {
+    width: 18px;
+    height: 18px;
+    background-image: url("/assets/icn-search-36dp.svg");
+    background-size: cover;
+  }
 }
