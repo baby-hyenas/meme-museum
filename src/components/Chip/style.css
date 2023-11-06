@@ -1,4 +1,4 @@
-.btn-chip {
+.chip-button {
   align-items: center;
   border-radius: 16px;
   display: inline-flex;
@@ -10,7 +10,7 @@
   background-color: #f1f1ff;
 }
 
-.btn-chip .text-wrapper {
+.chip-button .text-wrapper {
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 16px;
   font-weight: 500;
@@ -24,32 +24,32 @@
   color: #434154;
 }
 
-.btn-chip:active {
-  background-color: #5754d4;
-}
-
-.btn-chip:active .text-wrapper {
-  color: #ffffff;
-}
-
 @media (hover: hover) {
-  .btn-chip:hover {
+  .chip-button:hover {
     background-color: #dcdbff;
   }
 
-  .btn-chip:hover .text-wrapper {
+  .chip-button:hover .text-wrapper {
     color: #434154;
   }
 }
 
+.chip-button:active {
+  background-color: #5754d4;
+}
+
+.chip-button:active .text-wrapper {
+  color: #ffffff;
+}
+
 @media (max-width: 640px) {
-  .btn-chip {
+  .chip-button {
     border-radius: 8px;
     gap: 5px;
     padding: 6px 8px;
   }
 
-  .btn-chip .text-wrapper {
+  .chip-button .text-wrapper {
     font-size: 8px;
     font-weight: 500;
     letter-spacing: 0;
