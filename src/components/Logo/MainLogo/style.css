@@ -2,79 +2,22 @@
   display: flex;
   width: 570px;
   height: 216px;
-  padding: 0px 9px;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  background-image: url("/assets/logo-l.png");
+  background-size: cover;
 }
 
-.logo-a .group {
-  height: 248px;
-  left: 9px;
-  position: relative;
-  top: -31px;
-  width: 554px;
-}
-
-.logo-a .overlap-group {
-  height: 209px;
-  left: -8px;
-  position: relative;
-  top: 31px;
-  width: 552px;
-}
-
-.logo-a .text-wrapper {
-  text-shadow: calc(7px * 1) 0 0 #000,
-  calc(7px * 0.9239) calc(7px * 0.3827) 0 #000,
-  calc(7px * 0.7071) calc(7px * 0.7071) 0 #000,
-  calc(7px * 0.3827) calc(7px * 0.9239) 0 #000,
-  0 calc(7px * 1) 0 #000,
-  calc(7px * -0.3827) calc(7px * 0.9239) 0 #000,
-  calc(7px * -0.7071) calc(7px * 0.7071) 0 #000,
-  calc(7px * -0.9239) calc(7px * 0.3827) 0 #000,
-  calc(7px * -1) 0 0 #000,
-  calc(7px * -0.9239) calc(7px * -0.3827) 0 #000,
-  calc(7px * -0.7071) calc(7px * -0.7071) 0 #000,
-  calc(7px * -0.3827) calc(7px * -0.9239) 0 #000,
-  0 calc(7px * -1) 0 #000,
-  calc(7px * 0.3827) calc(7px * -0.9239) 0 #000,
-  calc(7px * 0.7071) calc(7px * -0.7071) 0 #000,
-  calc(7px * 0.9239) calc(7px * -0.3827) 0 #000;
-  color: #dcdbff;
-  font-family: "Super Magic", Helvetica;
-  font-size: 126px;
-  font-weight: 400;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 61px;
-  white-space: nowrap;
-}
-
-.logo-a .element {
-  height: 95px;
-  left: 69px;
-  position: absolute;
-  top: 24px;
-  width: 100px;
-}
-
-.logo-a .img {
-  height: 127px;
-  left: 156px;
-  position: absolute;
-  top: 0;
-  width: 177px;
-  background: transparent;
-}
-
-.logo-a .union {
-  height: 53px;
-  left: 391px;
-  position: absolute;
-  top: 63px;
-  width: 42px;
+@media (max-width: 640px) {
+  .logo-a {
+    display: flex;
+    width: 285px;
+    height: 108px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background-image: url("/assets/logo-s.png");
+    background-size: cover;
+  }
 }

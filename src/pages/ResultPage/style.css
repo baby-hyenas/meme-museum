@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .resultpage .search-section {
@@ -19,54 +20,76 @@
 }
 
 .resultpage .search-button {
-  left: 502px !important;
-  position: absolute !important;
-  top: 0 !important;
+  left: 502px;
+  position: absolute;
+  top: 0;
 }
 
 .resultpage .search-input {
-  left: 0 !important;
-  position: absolute !important;
-  top: 0 !important;
+  left: 0;
+  position: absolute;
+  top: 0;
 }
 
 .resultpage .search-section .chip-section {
-  position: absolute !important;
-  top: 88px !important;
+  position: absolute;
+  top: 88px;
   width: auto;
   gap: 12px;
   display: flex;
   flex-direction: row;
 }
 
-.resultpage .btn-chip-color-instance {
-  left: 0 !important;
-  position: absolute !important;
-  top: 88px !important;
-}
-
-.resultpage .btn-chip-color-2 {
-  left: 110px !important;
-  position: absolute !important;
-  top: 88px !important;
-}
-
-.resultpage .btn-chip-color-3 {
-  left: 371px !important;
-  position: absolute !important;
-  top: 88px !important;
-}
-
-.resultpage .btn-chip-color-4 {
-  left: 192px !important;
-  position: absolute !important;
-  top: 88px !important;
-}
-
 .resultpage .result-section {
-  height: 130px;
-  width: 570px;
+  height: 370px;
+  width: 640px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 120px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.resultpage .result-section.result-no-result {
+  background-image: url("/assets/img-noresult-l.png");
+  background-size: contain;
+}
+
+@media (max-width: 640px) {
+  .resultpage .search-section {
+    height: 65px;
+    width: 285px;
+    margin-top: 104px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .resultpage .search-button {
+    left: 251px;
+    position: absolute;
+    top: 0;
+  }
+
+  .resultpage .search-section .chip-section {
+    position: absolute;
+    top: 44px;
+    width: auto;
+    gap: 6px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .resultpage .result-section {
+    height: 185px;
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .resultpage .result-section.result-no-result {
+    background-image: url("/assets/img-noresult-s.png");
+    background-size: contain;
+  }
 }

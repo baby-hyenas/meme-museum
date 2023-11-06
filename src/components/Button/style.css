@@ -1,4 +1,4 @@
-.component {
+.button-search {
   width: 68px;
   height: 68px;
   border-radius: 16px;
@@ -7,19 +7,38 @@
   justify-content: center;
   align-content: center;
   cursor: pointer;
-}
-
-.component.search-default {
   background-color: #000000;
 }
 
-.component.search-hover {
-  background-color: #5755D5;
+@media (hover: hover) {
+  .button-search:hover {
+    background-color: #5755D5;
+  }
 }
 
-.component .union {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
+@media (hover: none) {
+  .button-search:active {
+    background-color: #5755D5;
+  }
+}
+
+.button-search .union {
+  width: 36px;
+  height: 36px;
+  background-image: url("/assets/icn-search-36dp.svg");
   margin: auto;
+  background-size: cover;
+}
+
+@media (max-width: 640px) {
+  .button-search {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+  }
+
+  .button-search .union {
+    width: 18px;
+    height: 18px;
+  }
 }

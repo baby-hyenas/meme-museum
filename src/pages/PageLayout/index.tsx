@@ -11,7 +11,9 @@ const PageLayout = () => {
 
   return (
     <div className="page-layout">
-      <SmallLogo className="small-logo" onClickLogo={gotoHome} />
+      <div className='pavicon'>
+        <SmallLogo onClickLogo={gotoHome} />
+      </div>
       <Outlet />
     </div>
   );
