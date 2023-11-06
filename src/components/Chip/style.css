@@ -24,20 +24,22 @@
   color: #434154;
 }
 
-.btn-chip:hover{
-  background-color: #dcdbff;
-}
-
-.btn-chip:active{
+.btn-chip:active {
   background-color: #5754d4;
-}
-
-.btn-chip:hover .text-wrapper {
-  color: #434154;
 }
 
 .btn-chip:active .text-wrapper {
   color: #ffffff;
+}
+
+@media (hover: hover) {
+  .btn-chip:hover {
+    background-color: #dcdbff;
+  }
+
+  .btn-chip:hover .text-wrapper {
+    color: #434154;
+  }
 }
 
 @media (max-width: 640px) {
@@ -46,7 +48,7 @@
     gap: 5px;
     padding: 6px 8px;
   }
-  
+
   .btn-chip .text-wrapper {
     font-size: 8px;
     font-weight: 500;
