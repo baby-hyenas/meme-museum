@@ -47,49 +47,24 @@
 
 @media (max-width: 640px) {
   .mainpage {
-    background-color: #ffffff;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 15px;
   }
   
   .mainpage .main-logo {
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 104px;
   }
   
   .mainpage .search-section {
     height: 65px;
     width: 285px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
   }
   
   .mainpage .search-button {
     left: 251px;
-    position: absolute;
-    top: 0;
-  }
-  
-  .mainpage .search-input {
-    left: 0;
-    position: absolute;
-    top: 0;
   }
   
   .mainpage .search-section .chip-section {
-    position: absolute;
     top: 44px;
-    width: auto;
     gap: 6px;
-    display: flex;
-    flex-direction: row;
   }
 }
