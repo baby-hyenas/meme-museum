@@ -1,4 +1,4 @@
-import { SearchButton, Chip, Input } from "../../components";
+import { SearchButton, Input } from "../../components";
 import "./style.css";
 
 export const ResultPage = (): JSX.Element => {
@@ -11,14 +11,8 @@ export const ResultPage = (): JSX.Element => {
         <div className="search-input">
           <Input />
         </div>
-        <div className="chip-section">
-          <Chip text="#2000년대" />
-          <Chip text="#2010년대" />
-          <Chip text="#2020년대" />
-        </div>
       </div>
-      <div className="result-section result-no-result">
-      </div>
+      <div className="result-section result-no-result" />
     </div >
   );
 };
