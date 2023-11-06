@@ -1,5 +1,4 @@
 import "./style.css";
-import { useState } from "react"
 
 type SmallLogoProps = {
   onClickLogo: () => void

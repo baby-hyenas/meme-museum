@@ -8,7 +8,9 @@ export const ResultPage = (): JSX.Element => {
         <div className="search-button">
           <SearchButton />
         </div>
-        <Input className="search-input" />
+        <div className="search-input">
+          <Input />
+        </div>
         <div className="chip-section">
           <Chip text="#2000년대" />
           <Chip text="#2010년대" />
@@ -17,6 +19,6 @@ export const ResultPage = (): JSX.Element => {
       </div>
       <div className="result-section result-no-result">
       </div>
-    </div>
+    </div >
   );
 };
