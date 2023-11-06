@@ -22,6 +22,7 @@
   white-space: nowrap;
   width: fit-content;
   color: #434154;
+  user-select: none;
 }
 
 @media (hover: hover) {

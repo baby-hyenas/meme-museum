@@ -47,6 +47,7 @@
   position: absolute;
   top: 17px;
   background-color: transparent;
+  user-select: none;
 }
 
 .search-input::-webkit-search-cancel-button {
