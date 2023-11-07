@@ -11,24 +11,8 @@
 }
 
 .resultpage .search-section {
-  height: 130px;
-  width: 570px;
   margin-top: 208px;
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
-}
-
-.resultpage .search-button {
-  left: 502px;
-  position: absolute;
-  top: 0;
-}
-
-.resultpage .search-input {
-  left: 0;
-  position: absolute;
-  top: 0;
 }
 
 .resultpage .search-section .chip-section {
@@ -56,40 +40,20 @@
 
 @media (max-width: 640px) {
   .resultpage .search-section {
-    height: 65px;
-    width: 285px;
     margin-top: 104px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-  }
-
-  .resultpage .search-button {
-    left: 251px;
-    position: absolute;
-    top: 0;
   }
 
   .resultpage .search-section .chip-section {
-    position: absolute;
     top: 44px;
-    width: auto;
     gap: 6px;
-    display: flex;
-    flex-direction: row;
   }
 
   .resultpage .result-section {
     height: 185px;
     width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    margin-bottom: 0;
   }
 
   .resultpage .result-section.result-no-result {
     background-image: url("/assets/img-noresult-s.png");
-    background-size: contain;
   }
 }

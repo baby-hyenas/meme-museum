@@ -1,6 +1,5 @@
 import { Chip } from './Chip';
 import { MainLogo, SmallLogo } from './Logo';
-import { SearchButton } from './Button';
-import { Input } from './Input';
+import { SearchBar } from './SearchBar';
 
-export { Chip, MainLogo, SmallLogo, SearchButton, Input };
+export { Chip, MainLogo, SmallLogo, SearchBar };

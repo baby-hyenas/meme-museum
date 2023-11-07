@@ -1,0 +1,28 @@
+.search-bar {
+  height: 130px;
+  width: 570px;
+  position: relative;
+}
+
+.search-bar .search-button {
+  left: 502px;
+  position: absolute;
+  top: 0;
+}
+
+.search-bar .search-input {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+@media (max-width: 640px) {
+  .search-bar {
+    height: 65px;
+    width: 285px;
+  }
+
+  .search-bar .search-button {
+    left: 251px;
+  }
+}

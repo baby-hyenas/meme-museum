@@ -1,13 +1,11 @@
 import "./style.css";
 
 type SmallLogoProps = {
-  onClickLogo: () => void
+  onClick?: () => void
 }
 
-export const SmallLogo = ({ onClickLogo }: SmallLogoProps): JSX.Element => {
+export const SmallLogo = ({ onClick }: SmallLogoProps): JSX.Element => {
   return (
-    <>
-      <div className="small-logo-a" onClick={onClickLogo} />
-    </>
+    <div className="small-logo-a" onClick={onClick} />
   );
 };

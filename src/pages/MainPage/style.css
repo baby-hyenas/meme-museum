@@ -17,23 +17,7 @@
 }
 
 .mainpage .search-section {
-  height: 130px;
-  width: 570px;
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
-}
-
-.mainpage .search-button {
-  left: 502px;
-  position: absolute;
-  top: 0;
-}
-
-.mainpage .search-input {
-  left: 0;
-  position: absolute;
-  top: 0;
 }
 
 .mainpage .search-section .chip-section {
@@ -52,15 +36,6 @@
   
   .mainpage .main-logo {
     margin-top: 104px;
-  }
-  
-  .mainpage .search-section {
-    height: 65px;
-    width: 285px;
-  }
-  
-  .mainpage .search-button {
-    left: 251px;
   }
   
   .mainpage .search-section .chip-section {

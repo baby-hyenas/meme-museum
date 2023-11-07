@@ -1,4 +1,4 @@
-import { SearchButton, MainLogo, Chip, Input } from "../../components";
+import { MainLogo, Chip, SearchBar } from "../../components";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
@@ -11,12 +11,7 @@ export const MainPage = (): JSX.Element => {
         <MainLogo />
       </div>
       <div className="search-section">
-        <div className="search-button">
-          <SearchButton onClickedButton={() => navigate("/result")} />
-        </div>
-        <div className="search-input">
-          <Input />
-        </div>
+        <SearchBar onSubmit={() => navigate('/result')} placeholder="검색어를 입력하세요." />
         <div className="chip-section">
           <Chip text="#무한도전" />
           <Chip text="#예능" />
