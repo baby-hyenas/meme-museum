@@ -11,7 +11,7 @@ export const MainPage = (): JSX.Element => {
         <MainLogo />
       </div>
       <div className="search-section">
-        <SearchBar onSubmit={() => navigate('/result')} placeholder="검색어를 입력하세요." />
+        <SearchBar onSubmit={() => navigate('/result')} placeholder="검색어를 입력해주세요." />
         <div className="chip-section">
           <Chip text="#무한도전" />
           <Chip text="#예능" />

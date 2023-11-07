@@ -5,7 +5,7 @@ export const ResultPage = (): JSX.Element => {
   return (
     <div className="resultpage">
       <div className="search-section">
-        <SearchBar placeholder="검색어를 입력하세요." />
+        <SearchBar placeholder="검색어를 입력해주세요." />
       </div>
       <div className="result-section result-no-result" />
     </div >
