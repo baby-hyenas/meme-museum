@@ -12,7 +12,7 @@ const PageLayout = () => {
   return (
     <div className="page-layout">
       <div className='pavicon'>
-        <SmallLogo onClickLogo={gotoHome} />
+        <SmallLogo onClick={gotoHome} />
       </div>
       <Outlet />
     </div>
