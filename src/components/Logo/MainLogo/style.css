@@ -12,12 +12,12 @@
 @media (max-width: 640px) {
   .logo-a {
     display: flex;
-    width: 285px;
-    height: 108px;
+    width: 318px;
+    height: 120px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    background-image: url("/assets/logo-s.png");
+    background-image: url("/assets/logo-l.png");
     background-size: cover;
   }
 }

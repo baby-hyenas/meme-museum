@@ -45,7 +45,6 @@
   line-height: 32px;
   opacity: 0.4;
   position: absolute;
-  top: 17px;
   background-color: transparent;
   user-select: none;
 }
@@ -61,8 +60,8 @@
 
 @media (max-width: 640px) {
   .search-input {
-    height: 62px;
-    width: 220px;
+    height: 41px;
+    width: 253px;
     font-size: 18px;
     border-bottom: solid #000000 1px;
   }

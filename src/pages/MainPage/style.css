@@ -18,6 +18,7 @@
 
 .mainpage .search-section {
   position: relative;
+  height: auto;
 }
 
 .mainpage .search-section .chip-section {
@@ -33,10 +34,14 @@
 
 @media (max-width: 640px) {
   .mainpage {
-    gap: 24px;
+    gap: 20px;
   }
   
   .mainpage .main-logo {
-    margin-top: 40%;
+    margin-top: 50%;
+  }
+
+  .mainpage .search-section .chip-section {
+    top: 65px;
   }
 }
