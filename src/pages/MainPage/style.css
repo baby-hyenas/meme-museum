@@ -23,23 +23,20 @@
 .mainpage .search-section .chip-section {
   position: absolute;
   top: 88px;
-  width: auto;
+  width: 100%;
   gap: 12px;
   display: flex;
   flex-direction: row;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (max-width: 640px) {
   .mainpage {
-    gap: 15px;
+    gap: 24px;
   }
   
   .mainpage .main-logo {
-    margin-top: 104px;
-  }
-  
-  .mainpage .search-section .chip-section {
-    top: 44px;
-    gap: 6px;
+    margin-top: 40%;
   }
 }

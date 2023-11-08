@@ -3,3 +3,9 @@
   height: auto;
   box-sizing: content-box !important;
 }
+
+@media (max-width: 640px) {
+  .list-component {
+    width: 357px !important;
+  }
+}
