@@ -13,6 +13,7 @@
 .resultpage .search-section {
   margin-top: 208px;
   position: relative;
+  height: auto;
 }
 
 .resultpage .search-section .chip-section {
@@ -42,12 +43,12 @@
 
 @media (max-width: 640px) {
   .resultpage .search-section {
-    margin-top: 104px;
+    margin-top: 160px;
+    height: 120px;
   }
 
   .resultpage .search-section .chip-section {
-    top: 44px;
-    gap: 6px;
+    top: 60px;
   }
 
   .resultpage .result-section.result-no-result {

@@ -30,3 +30,16 @@
   margin: auto;
   background-size: cover;
 }
+
+@media (max-width: 640px) {
+  .button-search {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+  }
+
+  .button-search .union {
+    width: 24px;
+    height: 24px;
+  }
+}

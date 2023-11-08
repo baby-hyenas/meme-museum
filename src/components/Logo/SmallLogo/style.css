@@ -19,24 +19,24 @@
     background-image: url("/assets/pavicon-hover-l.png");
   }
 }
-/* 
+
 @media (max-width: 640px) {
   .small-logo-a {
-    width: 30px;
-    height: 30px;
-    border-radius: 6px;
-    background-image: url("/assets/pavicon-default-s.png");
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-image: url("/assets/pavicon-default-l.png");
   }
 
   @media (hover: hover) {
     .small-logo-a:hover {
-      background-image: url("/assets/pavicon-hover-s.png");
+      background-image: url("/assets/pavicon-hover-l.png");
     }
   }
 
   @media (hover: none) {
     .small-logo-a:active {
-      background-image: url("/assets/pavicon-hover-s.png");
+      background-image: url("/assets/pavicon-hover-l.png");
     }
   }
-} */
+}
