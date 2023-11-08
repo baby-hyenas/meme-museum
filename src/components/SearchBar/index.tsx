@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React from "react";
 import { SearchButton } from "./SearchButton";
 import { SearchInput } from "./SearchInput";
 

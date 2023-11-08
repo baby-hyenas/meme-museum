@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { SmallLogo } from '../../components';
+import { SmallLogo } from '@/components';
 import { useNavigate } from 'react-router-dom';
 import "./style.css";
 

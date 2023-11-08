@@ -9,7 +9,7 @@
   letter-spacing: 0;
   border: none;
   border-bottom: solid #000000 2px;
-  background-color: #FFF;
+  background-color: transparent;
   appearance: none;
   border-radius: 0;
 }

@@ -3,10 +3,11 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 
 type ChipProps = {
-	text: string
+	text: string,
+	theme?: "color"|"gray"
 }
 
-export const Chip: React.FC<ChipProps> = ({text}: ChipProps) => {
+export const Chip: React.FC<ChipProps> = ({text, theme}: ChipProps) => {
   const navigate = useNavigate();
 
   const navigateResult = ()=>{
@@ -14,7 +15,7 @@ export const Chip: React.FC<ChipProps> = ({text}: ChipProps) => {
   }
 
 	return (
-		<div className="chip-button" onClick={navigateResult}>
+		<div className={`chip-button ${theme ??= "color"}`} onClick={navigateResult}>
 			<div className="text-wrapper">{text}</div>
 		</div>
 	);

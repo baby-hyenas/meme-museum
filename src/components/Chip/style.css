@@ -10,6 +10,10 @@
   background-color: #f1f1ff;
 }
 
+.chip-button.gray {
+  background-color: #F4F5F8;
+}
+
 .chip-button .text-wrapper {
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 16px;
@@ -21,7 +25,7 @@
   text-align: center;
   white-space: nowrap;
   width: fit-content;
-  color: #434154;
+  color: #434254;
   user-select: none;
 }
 
@@ -30,8 +34,8 @@
     background-color: #dcdbff;
   }
 
-  .chip-button:hover .text-wrapper {
-    color: #434154;
+  .chip-button.gray:hover {
+    background-color: #E4E7F1;
   }
 }
 
@@ -39,9 +43,18 @@
   background-color: #5754d4;
 }
 
+.chip-button.gray:active {
+  background-color: #E4E7F1;
+}
+
 .chip-button:active .text-wrapper {
   color: #ffffff;
 }
+
+.chip-button.gray:active .text-wrapper {
+  color: #434254;
+}
+
 
 @media (max-width: 640px) {
   .chip-button {

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { MainLogo, Chip, SearchBar } from "../../components";
+import { useState } from "react";
+import { MainLogo, Chip, SearchBar } from "@/components";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 

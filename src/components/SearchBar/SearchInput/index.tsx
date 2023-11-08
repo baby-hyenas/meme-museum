@@ -1,18 +1,21 @@
 import "./style.css";
-import {ChangeEvent} from "react";
+import { ChangeEvent } from "react";
 
 type SearchInputProps = {
   placeholder?: string
-  searchKeyword :string
-  setSearchKeyword : React.Dispatch<React.SetStateAction<string>>
+  searchKeyword: string
+  setSearchKeyword: React.Dispatch<React.SetStateAction<string>>
 }
 
 export const SearchInput = ({ placeholder, searchKeyword, setSearchKeyword }: SearchInputProps): JSX.Element => {
-  
+
 
   return (
-    <input className="search-input" placeholder={placeholder} type="search" value = {searchKeyword}
-    onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchKeyword(e.target.value)}
+    <input className="search-input"
+      placeholder={placeholder}
+      type="search"
+      value={searchKeyword}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchKeyword(e.target.value)}
     />
   );
 };
