@@ -6,14 +6,20 @@ import "./style.css";
 
 type SearchBarProps = {
   placeholder?: string,
-  onSubmit?: () => void
+  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void,
+  searchKeyword: string
+  setSearchKeyword: React.Dispatch<React.SetStateAction<string>>
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onSubmit }: SearchBarProps) => {
+export const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onSubmit, searchKeyword, setSearchKeyword }: SearchBarProps) => {
+
   return (
     <form className="search-bar" onSubmit={onSubmit}>
       <div className="search-input">
-        <SearchInput placeholder={placeholder} />
+        <SearchInput
+          placeholder={placeholder}
+          searchKeyword={searchKeyword}
+          setSearchKeyword={setSearchKeyword} />
       </div>
       <div className="search-button">
         <SearchButton />

@@ -19,7 +19,7 @@
     background-image: url("/assets/pavicon-hover-l.png");
   }
 }
-
+/* 
 @media (max-width: 640px) {
   .small-logo-a {
     width: 30px;
@@ -39,4 +39,4 @@
       background-image: url("/assets/pavicon-hover-s.png");
     }
   }
-}
+} */

@@ -1,0 +1,126 @@
+.list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  break-inside: avoid;
+  gap: 16px;
+}
+
+.list-item.hori {
+  height: 401px;
+}
+
+.list-item.vert {
+  height: 587px;
+}
+
+.list-item .list-item-image {
+  width: 423px !important;
+  background-color: #000;
+}
+
+.list-item.hori .list-item-image {
+  height: 238px;
+  object-fit: contain;
+}
+
+.list-item.vert .list-item-image {
+  height: 423px;
+  object-fit: contain;
+}
+
+.list-item .list-item-content {
+  width: 423px;
+  height: 108px;
+  position: relative;
+}
+
+.list-item .list-item-content .list-item-title {
+  width: 423px;
+  height: auto;
+  color: #000;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.list-item .list-item-content .list-item-link {
+  width: 423px;
+  height: auto;
+  color: #9F9EAD;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  top: 34px;
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.list-item .list-item-content .list-item-chip-section {
+  width: auto;
+  height: 44px;
+  gap: 12px;
+  display: flex;
+  flex-direction: row;
+  bottom: 0px;
+  position: absolute;
+}
+
+@media (max-width: 640px) {
+  .list-item {
+    gap: 7px;
+  }
+
+  .list-item.hori {
+    height: 181px;
+  }
+
+  .list-item.vert {
+    height: 256px;
+  }
+
+  .list-item .list-item-image {
+    width: 169px !important;
+  }
+
+  .list-item.hori .list-item-image {
+    height: 95px;
+  }
+
+  .list-item.vert .list-item-image {
+    height: 169px;
+  }
+
+  .list-item .list-item-content {
+    width: 169px;
+    height: 60px;
+  }
+
+  .list-item .list-item-content .list-item-title {
+    width: 169px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .list-item .list-item-content .list-item-link {
+    width: 169px;
+    font-size: 12px;
+    line-height: 18px;
+    top: 16px;
+  }
+
+  .list-item .list-item-content .list-item-chip-section {
+    height: 26px;
+    gap: 6px;
+  }
+}

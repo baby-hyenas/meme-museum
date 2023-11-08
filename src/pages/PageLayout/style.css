@@ -11,8 +11,8 @@
 
 @media (max-width: 640px) {
   .page-layout .pavicon {
-    top: 30;
-    left: 30px;
+    top: 32px;
+    left: 32px;
     position: absolute;
     z-index: 10;
   }

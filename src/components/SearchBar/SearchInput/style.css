@@ -9,7 +9,7 @@
   letter-spacing: 0;
   border: none;
   border-bottom: solid #000000 2px;
-  background-color: #FFF;
+  background-color: transparent;
   appearance: none;
   border-radius: 0;
 }
@@ -61,23 +61,14 @@
 
 @media (max-width: 640px) {
   .search-input {
-    height: 31px;
-    width: 236px;
-    font-size: 10px;
+    height: 62px;
+    width: 220px;
+    font-size: 18px;
     border-bottom: solid #000000 1px;
   }
 
   .search-input::placeholder {
-    font-size: 10px;
-    font-weight: 400;
-    height: 16px;
-    line-height: 16px;
-    top: 8px;
-  }
-
-  .search-input::-webkit-search-cancel-button {
-    height: 12px;
-    width: 12px;
-    border-radius: 6px;
+    font-size: 18px;
+    line-height: 28px;
   }
 }
