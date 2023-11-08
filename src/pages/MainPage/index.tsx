@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { MainLogo, Chip, SearchBar } from "../../components";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
@@ -20,7 +20,7 @@ export const MainPage = (): JSX.Element => {
         <MainLogo />
       </div>
       <div className="search-section">
-        <SearchBar onSubmit={navigateResult} setSearchKeyword = {setSearchKeyword} searchKeyword = {searchKeyword} placeholder="검색어를 입력해주세요." />
+        <SearchBar onSubmit={navigateResult} setSearchKeyword={setSearchKeyword} searchKeyword={searchKeyword} placeholder="검색어를 입력해주세요." />
         <div className="chip-section">
           <Chip text="#무한도전" />
           <Chip text="#예능" />

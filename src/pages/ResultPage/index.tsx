@@ -9,7 +9,8 @@ export const ResultPage = (): JSX.Element => {
   const navigate = useNavigate();
   const [searchKeyword, setSearchKeyword] = useState<string>('')
 
-  const navigateResult = () => {
+  const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     navigate(`/result?name=${searchKeyword}`)
   }
 
