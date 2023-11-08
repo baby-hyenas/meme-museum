@@ -10,7 +10,7 @@ export const ResultPage = (): JSX.Element => {
   const [searchKeyword, setSearchKeyword] = useState<string>('')
 
   const navigateResult = () => {
-    navigate(`/result/${searchKeyword}`)
+    navigate(`/result?name=${searchKeyword}`)
   }
 
 

@@ -11,7 +11,7 @@ export const MainPage = (): JSX.Element => {
 
   const navigateResult = () => {
     console.log(searchKeyword)
-    navigate(`/result/${searchKeyword}`)
+    navigate(`/result?name=${searchKeyword}`)
   }
 
   return (
