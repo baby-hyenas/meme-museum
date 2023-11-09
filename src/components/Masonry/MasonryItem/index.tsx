@@ -5,7 +5,9 @@ type MasonryItemProps = {
   src?: string,
   link?: string,
   title: string,
-  isHorizontal: boolean
+  isHorizontal: number,
+  tag?: string,
+  year?: number
 }
 
 // 아이템 컴포넌트
@@ -24,7 +26,7 @@ export const MasonryItem = ({ src, title, link, isHorizontal }: MasonryItemProps
         <div className="list-item-chip-section">
           <Chip text='#무한도전' theme='gray' />
           <Chip text='#예능' theme='gray' />
-        </div>        
+        </div>
       </div>
     </div>
   );
