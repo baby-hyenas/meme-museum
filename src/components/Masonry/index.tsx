@@ -6,7 +6,9 @@ type ItemProp = {
   src?: string,
   link?: string,
   title: string,
-  isHorizontal: boolean
+  isHorizontal: number,
+  tag?: string,
+  year?: number
 }
 
 type MasonryViewProps = {
@@ -23,6 +25,8 @@ export const MasonryView: React.FC<MasonryViewProps> = ({ items }: MasonryViewPr
           link={item.link}
           title={item.title}
           isHorizontal={item.isHorizontal}
+          tag = {item.tag}
+          year = {item.year}
         />
       ))}
     </Masonry>
