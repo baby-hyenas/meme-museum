@@ -1,21 +1,18 @@
+import React from 'react'
 import { Chip } from '@/components'
+import { addHash } from '@/utils';
+import { ItemProps } from '@/types';
 import './style.css'
 
-type MasonryItemProps = {
-  src?: string,
-  link?: string,
-  title: string,
-  isHorizontal: number,
-  tag?: string,
-  year?: number
-}
 
 // 아이템 컴포넌트
-export const MasonryItem = ({ src, title, link, isHorizontal }: MasonryItemProps): JSX.Element => {
+export const MasonryItem: React.FC<ItemProps> = ({isHorizontal, link, title, tag1, tag2, src}: ItemProps) => {
   const itemType = isHorizontal ? 'hori' : 'vert';
   return (
     <div className={`list-item ${itemType}`}>
-      <img className="list-item-image" src={src ??= (isHorizontal ? "/assets/default-image-h.svg" : "/assets/default-image-v.svg")} alt={title} />
+      <a href={link} target="_blank">
+        <img className="list-item-image" src={src ??= (isHorizontal ? "/assets/default-image-h.svg" : "/assets/default-image-v.svg")} alt={title} />
+      </a>
       <div className="list-item-content">
         <div className="list-item-title">
           {title}
@@ -24,8 +21,8 @@ export const MasonryItem = ({ src, title, link, isHorizontal }: MasonryItemProps
           {link}
         </div>
         <div className="list-item-chip-section">
-          <Chip text='#무한도전' theme='gray' />
-          <Chip text='#예능' theme='gray' />
+          {tag1 && <Chip text={addHash(tag1)} theme='gray' />}
+          {tag2 && <Chip text={addHash(tag2)} theme='gray' />}
         </div>
       </div>
     </div>

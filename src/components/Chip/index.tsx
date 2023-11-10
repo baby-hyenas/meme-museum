@@ -1,6 +1,7 @@
 import React from "react";
-import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { removeHash } from "@/utils";
+import "./style.css";
 
 type ChipProps = {
 	text: string,
@@ -11,7 +12,7 @@ export const Chip: React.FC<ChipProps> = ({text, theme}: ChipProps) => {
   const navigate = useNavigate();
 
   const navigateResult = ()=>{
-    navigate(`/result?name=${text}&type=tag`)
+    navigate(`/result?name=${removeHash(text)}&type=tag`)
   }
 
 	return (
