@@ -1,4 +1,4 @@
-.chip-button {
+.chip-toggle {
   align-items: center;
   border-radius: 16px;
   display: inline-flex;
@@ -13,10 +13,6 @@
   -webkit-user-select: none;
   -khtml-user-select: none;
   user-select: none;
-}
-
-.chip-button.gray {
-  background-color: #F4F5F8;
 }
 
 .chip-button .text-wrapper {
@@ -34,29 +30,17 @@
 }
 
 @media (hover: hover) {
-  .chip-button:hover {
+  .chip-button.chip-toggle-off:hover {
     background-color: #dcdbff;
-  }
-
-  .chip-button.gray:hover {
-    background-color: #E4E7F1;
   }
 }
 
-.chip-button:active {
+.chip-toggle.chip-toggle-on {
   background-color: #5754d4;
 }
 
-.chip-button.gray:active {
-  background-color: #E4E7F1;
-}
-
-.chip-button:active .text-wrapper {
+.chip-toggle.chip-toggle-on .text-wrapper {
   color: #ffffff;
-}
-
-.chip-button.gray:active .text-wrapper {
-  color: #434254;
 }
 
 
