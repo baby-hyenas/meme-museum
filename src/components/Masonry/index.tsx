@@ -11,7 +11,7 @@ type MasonryViewProps = {
 export const MasonryView: React.FC<MasonryViewProps> = ({ items }: MasonryViewProps) => {
   const [isMobile, setIsMobile] = useState(false);
   const [data, setData] = useState<ItemProps[]>([]);
-  const pageRef = useRef(0); 
+  const pageRef = useRef(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,14 +29,14 @@ export const MasonryView: React.FC<MasonryViewProps> = ({ items }: MasonryViewPr
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  },[])
+  }, [])
 
   useEffect(() => {
-    if(items.length > 0) initData(items);
-  },[items])
+    if (items.length > 0) initData(items);
+  }, [items])
 
-  const initData = (renderItem : ItemProps[]) => {
-    if(renderItem.length > 0) {
+  const initData = (renderItem: ItemProps[]) => {
+    if (renderItem.length > 0) {
       const initCount = Math.min(5, renderItem.length);
       pageRef.current = initCount;
       setData(renderItem.slice(0, initCount));
@@ -46,9 +46,11 @@ export const MasonryView: React.FC<MasonryViewProps> = ({ items }: MasonryViewPr
     }
   };
 
-  const fetchData = (renderItem : ItemProps[]) => {
-    if(renderItem.length > 0){
-      const fetchIndex = Math.min(pageRef.current+5, renderItem.length);
+  const fetchData = (renderItem: ItemProps[]) => {
+    if (renderItem.length > 0) {
+      if (pageRef.current == renderItem.length)
+        return;
+      const fetchIndex = Math.min(pageRef.current + 5, renderItem.length);
       const addItems = renderItem.slice(pageRef.current, fetchIndex)
       pageRef.current = fetchIndex;
       setData(prevData => [...prevData, ...addItems]);
@@ -57,7 +59,7 @@ export const MasonryView: React.FC<MasonryViewProps> = ({ items }: MasonryViewPr
       setData([]);
     }
   };
-  
+
   const handleScroll = () => {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
     if (scrollY + window.innerHeight >= document.documentElement.scrollHeight - 200) {
