@@ -60,7 +60,7 @@ export const ResultPage = (): JSX.Element => {
 
   useEffect(() => {
     if (!isFilterBelow2010 && !isFilterBetween20112020 && !isFilterUpper2021) {
-      setFilteredResult(searchResult);
+      setFilteredResult([...searchResult]);
       setResultType(searchResult.length == 0 ? 'ng-text' : 'ok');
       return;
     }
@@ -79,11 +79,10 @@ export const ResultPage = (): JSX.Element => {
       newFilteredResult = [...newFilteredResult, ...searchResult.filter((p: ItemProps) => p.year != null && p.year > 2020)];
     }
 
-    setFilteredResult(newFilteredResult);
+    setFilteredResult([...newFilteredResult]);
     setResultType(newFilteredResult.length == 0 ? 'ng-year' : 'ok');
 
   }, [isFilterBelow2010, isFilterBetween20112020, isFilterUpper2021, searchResult]);
-
 
   return (
     <div className="resultpage">
