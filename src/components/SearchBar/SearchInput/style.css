@@ -60,14 +60,15 @@
 
 @media (max-width: 640px) {
   .search-input {
-    height: 41px;
-    width: 253px;
-    font-size: 18px;
+    height: 48px;
+    width: 260px;
+    font-size: 16px;
+    line-height: 24px;
     border-bottom: solid #000000 1px;
   }
 
   .search-input::placeholder {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 24px;
   }
 }

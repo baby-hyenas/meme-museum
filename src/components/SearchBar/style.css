@@ -18,11 +18,11 @@
 
 @media (max-width: 640px) {
   .search-bar {
-    height: 45px;
-    width: 318px;
+    height: 48px;
+    width: 320px;
   }
 
   .search-bar .search-button {
-    left: 273px;
+    left: 272px;
   }
 }
