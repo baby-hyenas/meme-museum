@@ -34,14 +34,14 @@
 
 @media (max-width: 640px) {
   .mainpage {
-    gap: 20px;
+    gap: 12px;
   }
   
   .mainpage .main-logo {
-    margin-top: 50%;
+    margin-top: 142px;
   }
 
   .mainpage .search-section .chip-section {
-    top: 65px;
+    top: 64px;
   }
 }

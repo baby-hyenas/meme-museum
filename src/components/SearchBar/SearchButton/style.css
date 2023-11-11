@@ -33,13 +33,8 @@
 
 @media (max-width: 640px) {
   .button-search {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-  }
-
-  .button-search .union {
-    width: 24px;
-    height: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 11.29px;
   }
 }

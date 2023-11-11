@@ -82,45 +82,45 @@
   }
 
   .list-item.hori {
-    height: 181px;
+    height: 301px;
   }
 
   .list-item.vert {
-    height: 256px;
+    height: 456px;
   }
 
   .list-item .list-item-image {
-    width: 169px !important;
+    width: 320px !important;
   }
 
   .list-item.hori .list-item-image {
-    height: 95px;
+    height: 180px;
   }
 
   .list-item.vert .list-item-image {
-    height: 169px;
+    height: 320px;
   }
 
   .list-item .list-item-content {
-    width: 169px;
-    height: 60px;
+    width: 320px;
+    height: 90px;
   }
 
   .list-item .list-item-content .list-item-title {
-    width: 169px;
-    font-size: 16px;
-    line-height: 18px;
+    width: 320px;
+    font-size: 20px;
+    line-height: 30px;
   }
 
   .list-item .list-item-content .list-item-link {
-    width: 169px;
-    font-size: 12px;
-    line-height: 18px;
-    top: 16px;
+    width: 320px;
+    font-size: 14px;
+    line-height: 20px;
+    top: 29px;
   }
 
   .list-item .list-item-content .list-item-chip-section {
-    height: 26px;
-    gap: 6px;
+    height: 34px;
+    gap: 8px;
   }
 }

@@ -59,9 +59,13 @@
   color: #434254;
 }
 
-
 @media (max-width: 640px) {
+  .chip-button {
+    padding: 8px 12px;
+  }
+
   .chip-button .text-wrapper {
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 18px;
   }
 }

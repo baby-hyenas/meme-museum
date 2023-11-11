@@ -1,6 +1,8 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { SmallLogo } from '@/components';
 import { useNavigate } from 'react-router-dom';
+import ScrollToTop from '@/ScrollToTop';
 import "./style.css";
 
 const PageLayout = () => {
@@ -10,12 +12,15 @@ const PageLayout = () => {
   };
 
   return (
-    <div className="page-layout">
-      <div className='pavicon'>
-        <SmallLogo onClick={gotoHome} />
+    <Suspense>
+      <ScrollToTop />
+      <div className="page-layout">
+        <div className='pavicon'>
+          <SmallLogo onClick={gotoHome} />
+        </div>
+        <Outlet />
       </div>
-      <Outlet />
-    </div>
+      </Suspense>
   );
 };
 

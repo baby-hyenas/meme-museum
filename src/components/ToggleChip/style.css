@@ -15,7 +15,7 @@
   user-select: none;
 }
 
-.chip-button .text-wrapper {
+.chip-toggle .text-wrapper {
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 16px;
   font-weight: 500;
@@ -30,7 +30,7 @@
 }
 
 @media (hover: hover) {
-  .chip-button.chip-toggle-off:hover {
+  .chip-toggle.chip-toggle-off:hover {
     background-color: #dcdbff;
   }
 }
@@ -45,7 +45,12 @@
 
 
 @media (max-width: 640px) {
-  .chip-button .text-wrapper {
-    font-size: 14px;
+  .chip-toggle {
+    padding: 8px 12px;
+  }
+
+  .chip-toggle .text-wrapper {
+    font-size: 12px;
+    line-height: 18px;
   }
 }
