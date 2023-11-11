@@ -8,8 +8,10 @@ import "./style.css";
 const PageLayout = () => {
   const navigate = useNavigate();
   const gotoHome = () => {
+    if(window.location.pathname == '/')
+      window.location.reload();
+      
     navigate('/');
-    window.location.reload();
   };
 
   return (
