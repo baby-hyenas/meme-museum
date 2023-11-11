@@ -23,12 +23,12 @@ export const ResultPage = (): JSX.Element => {
 
   const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/result?name=${searchKeyword}&type=text`);
-    // if (!searchKeyword) {
-    //   return;
-    // } else {
-    //   navigate(`/result?name=${searchKeyword}&type=text`);
-    // }
+    // navigate(`/result?name=${searchKeyword}&type=text`);
+    if (!searchKeyword) {
+      return;
+    } else {
+      navigate(`/result?name=${searchKeyword}&type=text`);
+    }
   }
 
   useEffect(() => {
