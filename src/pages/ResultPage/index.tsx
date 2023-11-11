@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { SearchBar, MasonryView, ToggleChip } from "@/components";
 import { ItemProps } from "@/types";
 import "./style.css";
@@ -10,6 +10,8 @@ import metadata from "@/memedata"
 export const ResultPage = (): JSX.Element => {
   const navigate = useNavigate();
   const { params } = useParams();
+  const location = useLocation();
+
   const [searchKeyword, setSearchKeyword] = useState<string>('');
   const [searchResult,] = useState<ItemProps[]>(metadata);
   const [filteredResult, setFilteredResult] = useState<ItemProps[]>(searchResult);
@@ -21,6 +23,16 @@ export const ResultPage = (): JSX.Element => {
     e.preventDefault();
     navigate(`/result?name=${searchKeyword}`);
   }
+
+  useEffect(() => {
+    if (!isFilterBelow2010 && !isFilterBetween20112020 && !isFilterUpper2021) {
+      if (location.search) {
+        const searchParams = new URLSearchParams(location.search);
+        const yourQueryParam = searchParams.get('name') || '';
+        setSearchKeyword(yourQueryParam)
+      }
+    }}, [location.search]);
+
 
   useEffect(() => {
     if (!isFilterBelow2010 && !isFilterBetween20112020 && !isFilterUpper2021) {
@@ -46,9 +58,6 @@ export const ResultPage = (): JSX.Element => {
 
   }, [isFilterBelow2010, isFilterBetween20112020, isFilterUpper2021]);
 
-  useEffect(() => {
-    console.log(params);
-  }, [params]);
 
   return (
     <div className="resultpage">
