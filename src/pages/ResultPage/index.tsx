@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { SearchBar, MasonryView, ToggleChip } from "@/components";
-import { ItemProps, ItemWithYearProps } from "@/types";
+import { ItemProps } from "@/types";
 import "./style.css";
 import metadata from "@/memedata"
 
@@ -11,7 +11,7 @@ export const ResultPage = (): JSX.Element => {
   const navigate = useNavigate();
   const { params } = useParams();
   const [searchKeyword, setSearchKeyword] = useState<string>('');
-  const [searchResult, ] = useState<ItemProps[]>(metadata);
+  const [searchResult,] = useState<ItemProps[]>(metadata);
   const [filteredResult, setFilteredResult] = useState<ItemProps[]>(searchResult);
   const [isFilterBelow2010, SetIsFilterBelow2010] = useState<boolean>(false);
   const [isFilterBetween20112020, SetIsFilterBetween20112020] = useState<boolean>(false);
@@ -23,25 +23,23 @@ export const ResultPage = (): JSX.Element => {
   }
 
   useEffect(() => {
-    if (!isFilterBelow2010 && !isFilterBetween20112020 && !isFilterUpper2021)
-    {
+    if (!isFilterBelow2010 && !isFilterBetween20112020 && !isFilterUpper2021) {
       setFilteredResult(searchResult);
       return;
     }
 
     let newFilteredResult: ItemProps[] = [];
-    const searchResultWithYear = searchResult.filter((p: ItemProps): p is ItemWithYearProps => !!p);
 
     if (isFilterBelow2010) {
-      newFilteredResult = [...newFilteredResult, ...searchResultWithYear.filter((p: ItemWithYearProps) => p.year <= 2010)];
+      newFilteredResult = [...newFilteredResult, ...searchResult.filter((p: ItemProps) => p.year != null && p.year <= 2010)];
     }
 
     if (isFilterBetween20112020) {
-      newFilteredResult = [...newFilteredResult, ...searchResultWithYear.filter((p: ItemWithYearProps) => p && p.year > 2010 && p.year <= 2020)];
+      newFilteredResult = [...newFilteredResult, ...searchResult.filter((p: ItemProps) => p.year != null && p.year > 2010 && p.year <= 2020)];
     }
 
     if (isFilterUpper2021) {
-      newFilteredResult = [...newFilteredResult, ...searchResultWithYear.filter((p: ItemWithYearProps) => p && p.year > 2020)];
+      newFilteredResult = [...newFilteredResult, ...searchResult.filter((p: ItemProps) => p.year != null && p.year > 2020)];
     }
 
     setFilteredResult(newFilteredResult);
@@ -50,7 +48,7 @@ export const ResultPage = (): JSX.Element => {
 
   useEffect(() => {
     console.log(params);
-  },[params]);
+  }, [params]);
 
   return (
     <div className="resultpage">
