@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { MainLogo, Chip, SearchBar } from "@/components";
 import { useNavigate } from "react-router-dom";
+import { tagData, getRandomTag } from "@/memedata";
 import "./style.css";
+import { addHash } from "@/utils/index";
 
 export const MainPage = (): JSX.Element => {
   const [searchKeyword, setSearchKeyword] = useState<string>('')
-  
+
   const navigate = useNavigate();
   const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,10 +26,12 @@ export const MainPage = (): JSX.Element => {
       <div className="search-section">
         <SearchBar onSubmit={navigateResult} setSearchKeyword={setSearchKeyword} searchKeyword={searchKeyword} placeholder="검색어를 입력해주세요." />
         <div className="chip-section">
-          <Chip text="#무한도전" />
-          <Chip text="#예능" />
-          <Chip text="#뉴스" />
-          <Chip text="#안녕히계세요여러분" />
+          {getRandomTag(3, tagData()).map((item, index) => (
+            <Chip
+              key={index}
+              text={addHash(item)}
+            />
+          ))}
         </div>
       </div>
     </div>
