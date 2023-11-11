@@ -25,23 +25,28 @@ export const MasonryView: React.FC<MasonryViewProps> = ({ items }: MasonryViewPr
   }, []);
 
   useEffect(() => {
-    fetchData();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   },[])
 
-  const fetchData = () => {
-    const addItems = items.slice(pageRef.current, pageRef.current+5)
-    pageRef.current = pageRef.current + 5;
-    setData(prevData => [...prevData, ...addItems]);
+  useEffect(() => {
+    if(items.length > 0) fetchData(items);
+  },[items])
+
+  const fetchData = (renderItem : ItemProps[]) => {
+    if(renderItem.length > 0){
+      const addItems = renderItem.slice(pageRef.current, pageRef.current+5)
+      pageRef.current = pageRef.current + 5;
+      setData(prevData => [...prevData, ...addItems]);
+    }
   };
   
   const handleScroll = () => {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
     if (scrollY + window.innerHeight >= document.documentElement.scrollHeight - 200) {
-      fetchData();
+      fetchData(items);
     }
   };
 
