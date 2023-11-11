@@ -65,7 +65,11 @@ export const ResultPage = (): JSX.Element => {
           console.log(filteredData)
           break;
       }
-
+      filteredData = filteredData.sort((a, b) => {
+        if (a.year === null) return -1; 
+        if (b.year === null) return 1; 
+        return a.year - b.year;
+      });
       setSearchResult(filteredData);
       setResultType(filteredData.length == 0 ? 'ng-text' : 'ok');
     }
