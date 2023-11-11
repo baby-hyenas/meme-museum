@@ -12,7 +12,7 @@ export const SearchInput = ({ placeholder, searchKeyword, setSearchKeyword }: Se
     <input className="search-input"
       placeholder={placeholder}
       type="search"
-      maxlength="40"
+      maxLength={40}
       value={searchKeyword}
       onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchKeyword(e.target.value)}
     />
