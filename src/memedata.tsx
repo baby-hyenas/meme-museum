@@ -50,6 +50,12 @@ const memedata =
   { "num": 49, "title": "피어나! 너 내 도도독", "src": "https://img.youtube.com/vi/cX_SBwedGV0/mqdefault.jpg", "link": "https://www.youtube.com/watch?v=cX_SBwedGV0", "isHorizontal": 1, "tag1": "", "tag2": "유튜브", "year": 2023 },
   { "num": 50, "title": "아이구 무서워라", "src": "https://img.youtube.com/vi/pu07CS8Pl_4/mqdefault.jpg", "link": "https://www.youtube.com/watch?v=pu07CS8Pl_4", "isHorizontal": 1, "tag1": "광개토대왕", "tag2": "드라마", "year": 2012 }]
 
+
+export const sortedmemeData = () =>
+  memedata.sort((a, b) =>
+    (a.year ?? Number.MAX_SAFE_INTEGER) - (b.year ?? Number.MAX_SAFE_INTEGER)
+  );
+
 export const tagData = () => {
   const tagSet = new Set(memedata.flatMap(meme => [meme.tag1, meme.tag2]));
   tagSet.delete("");
