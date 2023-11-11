@@ -12,11 +12,12 @@ export const MainPage = (): JSX.Element => {
   const navigate = useNavigate();
   const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!searchKeyword) {
-      return;
-    } else {
-      navigate(`/result?name=${searchKeyword}&type=text`);
-    }
+    navigate(`/result?name=${searchKeyword}&type=text`);
+    // if (!searchKeyword) {
+    //   return;
+    // } else {
+    //   navigate(`/result?name=${searchKeyword}&type=text`);
+    // }
   }
 
   useEffect(() => {
