@@ -7,13 +7,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 80px;
 }
 
 .resultpage .search-section {
   margin-top: 208px;
   position: relative;
-  height: auto;
+}
+
+.resultpage .search-section.center {
+  justify-content: center;
+  display: flex;
+}
+
+.resultpage .search-section .tag-section {
+  font-family: "Pretendard-Regular", Helvetica;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 60px;
+  height: 124px;
+}
+
+.resultpage .search-section .tag-section .bold {
+  font-weight: 600;
 }
 
 .resultpage .search-section .chip-section {
@@ -41,9 +57,19 @@
 }
 
 @media (max-width: 640px) {
+  .resultpage {
+    gap: 40px;
+  }
+
   .resultpage .search-section {
     margin-top: 160px;
     height: 120px;
+  }
+
+  .resultpage .search-section .tag-section {
+    font-size: 32px;
+    line-height: 43px;
+    height: 89px;
   }
 
   .resultpage .search-section .chip-section {
