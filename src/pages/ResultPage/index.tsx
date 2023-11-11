@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { SearchBar, MasonryView, ToggleChip } from "@/components";
 import { ItemProps } from "@/types";
 import "./style.css";
@@ -9,7 +9,8 @@ import metadata from "@/memedata"
 
 export const ResultPage = (): JSX.Element => {
   const navigate = useNavigate();
-  const { params } = useParams();
+
+
   const location = useLocation();
 
   const [searchKeyword, setSearchKeyword] = useState<string>('');
@@ -21,20 +22,27 @@ export const ResultPage = (): JSX.Element => {
 
   const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/result?name=${searchKeyword}`);
+    if (!searchKeyword) {
+      return;
+    } else {
+      navigate(`/result?name=${searchKeyword}`);
+    }
   }
 
   useEffect(() => {
-    if (!isFilterBelow2010 && !isFilterBetween20112020 && !isFilterUpper2021) {
-      if (location.search) {
-        const searchParams = new URLSearchParams(location.search);
-        const yourQueryParam = searchParams.get('name') || '';
-        
-        setSearchKeyword(yourQueryParam)
-        const filteredData = metadata.filter((item) => item.title.indexOf(yourQueryParam) >= 0)
-        setSearchResult(filteredData)  
-      }
-    }}, [location.search]);
+    if (location.search) {
+      const searchParams = new URLSearchParams(location.search);
+      const queryParam = searchParams.get('name') || '';
+      setSearchKeyword(queryParam)
+
+      const filteredData = metadata.filter((item) =>
+        item.title.indexOf(queryParam) >= 0
+        || item.tag1 === queryParam
+        || item.tag2 === queryParam
+      )
+      setSearchResult(filteredData)
+    }
+  }, [location.search]);
 
 
   useEffect(() => {

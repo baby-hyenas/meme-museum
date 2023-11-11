@@ -9,9 +9,13 @@ export const MainPage = (): JSX.Element => {
 
   const navigate = useNavigate();
 
-  const navigateResult = () => {
-    console.log(searchKeyword)
-    navigate(`/result?name=${searchKeyword}`)
+  const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!searchKeyword) {
+      return;
+    } else {
+      navigate(`/result?name=${searchKeyword}`)
+    }
   }
 
   return (
