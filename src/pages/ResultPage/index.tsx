@@ -14,7 +14,7 @@ export const ResultPage = (): JSX.Element => {
   const location = useLocation();
 
   const [searchKeyword, setSearchKeyword] = useState<string>('');
-  const [searchResult, setSearchResult] = useState<ItemProps[]>(metadata);
+  const [searchResult, setSearchResult] = useState<ItemProps[]>([]);
   const [filteredResult, setFilteredResult] = useState<ItemProps[]>(searchResult);
   const [resultType, setResultType] = useState<'ok' | 'ng-text' | 'ng-year'>('ng-text');
   const [isFilterBelow2010, setIsFilterBelow2010] = useState<boolean>(false);
