@@ -35,10 +35,14 @@
 .resultpage .search-section .chip-section {
   position: absolute;
   top: 88px;
-  width: 100%;
   gap: 12px;
+  width: auto;
   display: flex;
   flex-direction: row;
+}
+
+.resultpage .search-section.center .chip-section {
+  justify-content: center;
 }
 
 .resultpage .result-section {
