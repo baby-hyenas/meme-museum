@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { SearchBar, MasonryView, ToggleChip } from "@/components";
 import { ItemProps } from "@/types";
+import { addHash, includeByCho } from "@/utils";
+import metadata, { sortedmemeData } from "@/memedata"
 import "./style.css";
-import metadata from "@/memedata"
-import { addHash } from "@/utils/index";
-import { includeByCho } from "@/utils";
-
 
 export const ResultPage = (): JSX.Element => {
   const navigate = useNavigate();
   const location = useLocation();
+  const sortedmetadata = useMemo(() => sortedmemeData(), [metadata]);
 
   const [searchKeyword, setSearchKeyword] = useState<string>('');
   const [searchResult, setSearchResult] = useState<ItemProps[]>([]);
@@ -23,12 +22,8 @@ export const ResultPage = (): JSX.Element => {
 
   const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // navigate(`/result?name=${searchKeyword}&type=text`);
-    if (!searchKeyword) {
-      return;
-    } else {
+    if (searchKeyword)
       navigate(`/result?name=${searchKeyword}&type=text`);
-    }
   }
 
   useEffect(() => {
@@ -42,34 +37,27 @@ export const ResultPage = (): JSX.Element => {
       switch (type) {
         case "tag":
           setSearchType('tag');
-          filteredData = metadata.filter((item) =>
+          filteredData = sortedmetadata.filter((item) =>
             item.tag1 === name ||
             item.tag2 === name);
           break;
         case "text":
         default:
           setSearchType('title');
-          if(!name){
-            filteredData = metadata
-          }else if(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(name)){
-            filteredData = metadata.filter((item) => includeByCho(name, item.title)
-                                                  || includeByCho(name, item.tag1)
-                                                  || includeByCho(name, item.tag2)
+          if (/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(name)) {
+            filteredData = sortedmetadata.filter((item) => includeByCho(name, item.title)
+              || includeByCho(name, item.tag1)
+              || includeByCho(name, item.tag2)
             );
-          }else{
-            filteredData = metadata.filter((item) => item.title.indexOf(name) >= 0
-                                                  || item.tag1 === name 
-                                                  || item.tag2 === name 
+          } else {
+            filteredData = sortedmetadata.filter((item) => item.title.indexOf(name) >= 0
+              || item.tag1 === name
+              || item.tag2 === name
             )
           }
-          console.log(filteredData)
           break;
       }
-      filteredData = filteredData.sort((a, b) => {
-        if (a.year === null) return -1; 
-        if (b.year === null) return 1; 
-        return a.year - b.year;
-      });
+
       setSearchResult(filteredData);
       setResultType(filteredData.length == 0 ? 'ng-text' : 'ok');
     }
