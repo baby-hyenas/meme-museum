@@ -60,7 +60,6 @@ export const ResultPage = (): JSX.Element => {
     }
   }, [location.search]);
 
-
   useEffect(() => {
     if (!isFilterBelow2010 && !isFilterBetween20112020 && !isFilterUpper2021) {
       setFilteredResult([...searchResult]);

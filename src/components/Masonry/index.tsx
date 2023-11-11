@@ -32,14 +32,29 @@ export const MasonryView: React.FC<MasonryViewProps> = ({ items }: MasonryViewPr
   },[])
 
   useEffect(() => {
-    if(items.length > 0) fetchData(items);
+    if(items.length > 0) initData(items);
   },[items])
+
+  const initData = (renderItem : ItemProps[]) => {
+    if(renderItem.length > 0) {
+      const initCount = Math.min(5, renderItem.length);
+      pageRef.current = initCount;
+      setData(renderItem.slice(0, initCount));
+    } else {
+      pageRef.current = 0;
+      setData([]);
+    }
+  };
 
   const fetchData = (renderItem : ItemProps[]) => {
     if(renderItem.length > 0){
-      const addItems = renderItem.slice(pageRef.current, pageRef.current+5)
-      pageRef.current = pageRef.current + 5;
+      const fetchIndex = Math.min(pageRef.current+5, renderItem.length);
+      const addItems = renderItem.slice(pageRef.current, fetchIndex)
+      pageRef.current = fetchIndex;
       setData(prevData => [...prevData, ...addItems]);
+    } else {
+      pageRef.current = 0;
+      setData([]);
     }
   };
   
