@@ -4,6 +4,7 @@ import { SearchBar, MasonryView, ToggleChip } from "@/components";
 import { ItemProps } from "@/types";
 import "./style.css";
 import metadata from "@/memedata"
+import { addHash } from "@/utils/index";
 
 
 
@@ -16,6 +17,7 @@ export const ResultPage = (): JSX.Element => {
   const [searchKeyword, setSearchKeyword] = useState<string>('');
   const [searchResult, setSearchResult] = useState<ItemProps[]>([]);
   const [filteredResult, setFilteredResult] = useState<ItemProps[]>(searchResult);
+  const [searchType, setSearchType] = useState<'title' | 'tag'>('title');
   const [resultType, setResultType] = useState<'ok' | 'ng-text' | 'ng-year'>('ng-text');
   const [isFilterBelow2010, setIsFilterBelow2010] = useState<boolean>(false);
   const [isFilterBetween20112020, setIsFilterBetween20112020] = useState<boolean>(false);
@@ -38,15 +40,16 @@ export const ResultPage = (): JSX.Element => {
 
       setSearchKeyword(name);
       let filteredData: ItemProps[] = [];
-
       switch (type) {
         case "tag":
+          setSearchType('tag');
           filteredData = metadata.filter((item) =>
             item.tag1 === name ||
             item.tag2 === name);
           break;
         case "text":
         default:
+          setSearchType('title');
           filteredData = metadata.filter((item) =>
             item.title.indexOf(name) >= 0);
           break;
@@ -87,13 +90,25 @@ export const ResultPage = (): JSX.Element => {
 
   return (
     <div className="resultpage">
-      <div className="search-section">
-        <SearchBar onSubmit={navigateResult} setSearchKeyword={setSearchKeyword} searchKeyword={searchKeyword} placeholder="검색어를 입력해주세요." />
-        <div className="chip-section">
+      <div className={`search-section ${searchType == 'tag' ? 'center' : ''}`}>
+        {(() => {
+          switch (searchType) {
+            case 'tag':
+              return <div className="tag-section">
+                <p>
+                  <span className="bold">{addHash(searchKeyword)}</span> 검색결과
+                </p>
+              </div>;
+            case 'title':
+            default:
+              return <SearchBar onSubmit={navigateResult} setSearchKeyword={setSearchKeyword} searchKeyword={searchKeyword} placeholder="검색어를 입력해주세요." />;
+          }
+        })()}
+        {(resultType == 'ok' || resultType == 'ng-year') && <div className="chip-section">
           <ToggleChip text="~2010" setToggle={setIsFilterBelow2010} />
           <ToggleChip text="2011~2020" setToggle={setIsFilterBetween20112020} />
           <ToggleChip text="2021~" setToggle={setIsFilterUpper2021} />
-        </div>
+        </div>}
       </div>
       <div className="result-section">
         {(() => {
