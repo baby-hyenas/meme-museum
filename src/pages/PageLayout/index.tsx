@@ -9,6 +9,7 @@ const PageLayout = () => {
   const navigate = useNavigate();
   const gotoHome = () => {
     navigate('/');
+    window.location.reload();
   };
 
   return (
