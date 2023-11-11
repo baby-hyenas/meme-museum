@@ -13,7 +13,7 @@ export const ResultPage = (): JSX.Element => {
   const location = useLocation();
 
   const [searchKeyword, setSearchKeyword] = useState<string>('');
-  const [searchResult,] = useState<ItemProps[]>(metadata);
+  const [searchResult, setSearchResult] = useState<ItemProps[]>(metadata);
   const [filteredResult, setFilteredResult] = useState<ItemProps[]>(searchResult);
   const [isFilterBelow2010, SetIsFilterBelow2010] = useState<boolean>(false);
   const [isFilterBetween20112020, SetIsFilterBetween20112020] = useState<boolean>(false);
@@ -29,7 +29,10 @@ export const ResultPage = (): JSX.Element => {
       if (location.search) {
         const searchParams = new URLSearchParams(location.search);
         const yourQueryParam = searchParams.get('name') || '';
+        
         setSearchKeyword(yourQueryParam)
+        const filteredData = metadata.filter((item) => item.title.indexOf(yourQueryParam) >= 0)
+        setSearchResult(filteredData)  
       }
     }}, [location.search]);
 
@@ -56,7 +59,7 @@ export const ResultPage = (): JSX.Element => {
 
     setFilteredResult(newFilteredResult);
 
-  }, [isFilterBelow2010, isFilterBetween20112020, isFilterUpper2021]);
+  }, [isFilterBelow2010, isFilterBetween20112020, isFilterUpper2021, searchResult]);
 
 
   return (
