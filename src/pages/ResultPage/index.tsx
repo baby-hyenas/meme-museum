@@ -16,31 +16,44 @@ export const ResultPage = (): JSX.Element => {
   const [searchKeyword, setSearchKeyword] = useState<string>('');
   const [searchResult, setSearchResult] = useState<ItemProps[]>(metadata);
   const [filteredResult, setFilteredResult] = useState<ItemProps[]>(searchResult);
-  const [isFilterBelow2010, SetIsFilterBelow2010] = useState<boolean>(false);
-  const [isFilterBetween20112020, SetIsFilterBetween20112020] = useState<boolean>(false);
-  const [isFilterUpper2021, SetIsFilterUpper2021] = useState<boolean>(false);
+  const [resultType, setResultType] = useState<'ok' | 'ng-text' | 'ng-year'>('ng-text');
+  const [isFilterBelow2010, setIsFilterBelow2010] = useState<boolean>(false);
+  const [isFilterBetween20112020, setIsFilterBetween20112020] = useState<boolean>(false);
+  const [isFilterUpper2021, setIsFilterUpper2021] = useState<boolean>(false);
 
   const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!searchKeyword) {
       return;
     } else {
-      navigate(`/result?name=${searchKeyword}`);
+      navigate(`/result?name=${searchKeyword}&type=text`);
     }
   }
 
   useEffect(() => {
     if (location.search) {
       const searchParams = new URLSearchParams(location.search);
-      const queryParam = searchParams.get('name') || '';
-      setSearchKeyword(queryParam)
+      const name = searchParams.get('name') || '';
+      const type = searchParams.get('type') || 'text';
 
-      const filteredData = metadata.filter((item) =>
-        item.title.indexOf(queryParam) >= 0
-        || item.tag1 === queryParam
-        || item.tag2 === queryParam
-      )
-      setSearchResult(filteredData)
+      setSearchKeyword(name);
+      let filteredData: ItemProps[] = [];
+
+      switch (type) {
+        case "tag":
+          filteredData = metadata.filter((item) =>
+            item.tag1 === name ||
+            item.tag2 === name);
+          break;
+        case "text":
+        default:
+          filteredData = metadata.filter((item) =>
+            item.title.indexOf(name) >= 0);
+          break;
+      }
+
+      setSearchResult(filteredData);
+      setResultType(filteredData.length == 0 ? 'ng-text' : 'ok');
     }
   }, [location.search]);
 
@@ -48,6 +61,7 @@ export const ResultPage = (): JSX.Element => {
   useEffect(() => {
     if (!isFilterBelow2010 && !isFilterBetween20112020 && !isFilterUpper2021) {
       setFilteredResult(searchResult);
+      setResultType(searchResult.length == 0 ? 'ng-text' : 'ok');
       return;
     }
 
@@ -66,6 +80,7 @@ export const ResultPage = (): JSX.Element => {
     }
 
     setFilteredResult(newFilteredResult);
+    setResultType(newFilteredResult.length == 0 ? 'ng-year' : 'ok');
 
   }, [isFilterBelow2010, isFilterBetween20112020, isFilterUpper2021, searchResult]);
 
@@ -75,13 +90,23 @@ export const ResultPage = (): JSX.Element => {
       <div className="search-section">
         <SearchBar onSubmit={navigateResult} setSearchKeyword={setSearchKeyword} searchKeyword={searchKeyword} placeholder="검색어를 입력해주세요." />
         <div className="chip-section">
-          <ToggleChip text="~2010" setToggle={SetIsFilterBelow2010} />
-          <ToggleChip text="2011~2020" setToggle={SetIsFilterBetween20112020} />
-          <ToggleChip text="2021~" setToggle={SetIsFilterUpper2021} />
+          <ToggleChip text="~2010" setToggle={setIsFilterBelow2010} />
+          <ToggleChip text="2011~2020" setToggle={setIsFilterBetween20112020} />
+          <ToggleChip text="2021~" setToggle={setIsFilterUpper2021} />
         </div>
       </div>
       <div className="result-section">
-        <MasonryView items={filteredResult} />
+        {(() => {
+          switch (resultType) {
+            case 'ng-year':
+              return <img className="result-no-result" src="/assets/img-noyear-l.png" />;
+            case 'ng-text':
+              return <img className="result-no-result" src="/assets/img-noresult-l.png" />;
+            case 'ok':
+            default:
+              return <MasonryView items={filteredResult} />;
+          }
+        })()}
       </div>
     </div >
   );
