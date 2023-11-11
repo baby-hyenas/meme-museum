@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MasonryItem } from "./MasonryItem";
 import { Masonry } from "@mui/lab";
 import { ItemProps } from "@/types"
@@ -10,6 +10,8 @@ type MasonryViewProps = {
 
 export const MasonryView: React.FC<MasonryViewProps> = ({ items }: MasonryViewProps) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [data, setData] = useState<ItemProps[]>([]);
+  const pageRef = useRef(0); 
 
   useEffect(() => {
     const handleResize = () => {
@@ -22,9 +24,31 @@ export const MasonryView: React.FC<MasonryViewProps> = ({ items }: MasonryViewPr
     };
   }, []);
 
+  useEffect(() => {
+    fetchData();
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  },[])
+
+  const fetchData = () => {
+    const addItems = items.slice(pageRef.current, pageRef.current+5)
+    pageRef.current = pageRef.current + 5;
+    setData(prevData => [...prevData, ...addItems]);
+  };
+  
+  const handleScroll = () => {
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+    if (scrollY + window.innerHeight >= document.documentElement.scrollHeight - 200) {
+      fetchData();
+    }
+  };
+
+
   return (
     <Masonry className="list-component" columns={isMobile ? 1 : 2} spacing={0}>
-      {items.map((item, index) => (
+      {data.map((item, index) => (
         <MasonryItem
           key={index}
           src={item.src}

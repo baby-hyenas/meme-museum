@@ -36,9 +36,8 @@
   align-items: center;  
 }
 
-.resultpage .result-section.result-no-result {
-  background-image: url("/assets/img-noresult-l.png");
-  background-size: contain;
+.resultpage .result-section .result-no-result {
+  width: 640px;
 }
 
 @media (max-width: 640px) {
@@ -51,7 +50,7 @@
     top: 60px;
   }
 
-  .resultpage .result-section.result-no-result {
-    background-image: url("/assets/img-noresult-s.png");
+  .resultpage .result-section .result-no-result {
+    width: 320px;
   }
 }

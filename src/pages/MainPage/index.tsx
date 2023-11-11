@@ -4,17 +4,15 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 export const MainPage = (): JSX.Element => {
-
   const [searchKeyword, setSearchKeyword] = useState<string>('')
-
+  
   const navigate = useNavigate();
-
   const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!searchKeyword) {
       return;
     } else {
-      navigate(`/result?name=${searchKeyword}`)
+      navigate(`/result?name=${searchKeyword}&type=text`);
     }
   }
 
