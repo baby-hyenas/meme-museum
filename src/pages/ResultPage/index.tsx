@@ -32,10 +32,14 @@ export const ResultPage = (): JSX.Element => {
   useEffect(() => {
     if (location.search) {
       const searchParams = new URLSearchParams(location.search);
-      const yourQueryParam = searchParams.get('name') || '';
+      const queryParam = searchParams.get('name') || '';
+      setSearchKeyword(queryParam)
 
-      setSearchKeyword(yourQueryParam)
-      const filteredData = metadata.filter((item) => item.title.indexOf(yourQueryParam) >= 0)
+      const filteredData = metadata.filter((item) =>
+        item.title.indexOf(queryParam) >= 0
+        || item.tag1 === queryParam
+        || item.tag2 === queryParam
+      )
       setSearchResult(filteredData)
     }
   }, [location.search]);
