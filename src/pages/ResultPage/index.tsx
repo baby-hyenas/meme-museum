@@ -5,13 +5,11 @@ import { ItemProps } from "@/types";
 import "./style.css";
 import metadata from "@/memedata"
 import { addHash } from "@/utils/index";
-import { includeByCho, makeRegexByCho } from "@/utils";
+import { includeByCho } from "@/utils";
 
 
 export const ResultPage = (): JSX.Element => {
   const navigate = useNavigate();
-
-
   const location = useLocation();
 
   const [searchKeyword, setSearchKeyword] = useState<string>('');
