@@ -37,4 +37,9 @@
     height: 48px;
     border-radius: 11.29px;
   }
+
+  .button-search .union {
+    width: 24px;
+    height: 24px;
+  }
 }
