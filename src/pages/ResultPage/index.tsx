@@ -5,7 +5,7 @@ import { ItemProps } from "@/types";
 import "./style.css";
 import metadata from "@/memedata"
 import { addHash } from "@/utils/index";
-
+import { includeByCho, makeRegexByCho } from "@/utils";
 
 
 export const ResultPage = (): JSX.Element => {
@@ -50,8 +50,10 @@ export const ResultPage = (): JSX.Element => {
         case "text":
         default:
           setSearchType('title');
-          filteredData = metadata.filter((item) =>
-            item.title.indexOf(name) >= 0);
+          if(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(name)){
+            filteredData = metadata.filter((item) => includeByCho(name, item.title));
+          }else{
+            filteredData = metadata.filter((item) => item.title.indexOf(name) >= 0)}
           break;
       }
 
