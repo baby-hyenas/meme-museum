@@ -23,6 +23,7 @@ export const ResultPage = (): JSX.Element => {
 
   const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // navigate(`/result?name=${searchKeyword}&type=text`);
     if (!searchKeyword) {
       return;
     } else {
@@ -48,13 +49,27 @@ export const ResultPage = (): JSX.Element => {
         case "text":
         default:
           setSearchType('title');
-          if(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(name)){
-            filteredData = metadata.filter((item) => includeByCho(name, item.title));
+          if(!name){
+            filteredData = metadata
+          }else if(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(name)){
+            filteredData = metadata.filter((item) => includeByCho(name, item.title)
+                                                  || includeByCho(name, item.tag1)
+                                                  || includeByCho(name, item.tag2)
+            );
           }else{
-            filteredData = metadata.filter((item) => item.title.indexOf(name) >= 0)}
+            filteredData = metadata.filter((item) => item.title.indexOf(name) >= 0
+                                                  || item.tag1 === name 
+                                                  || item.tag2 === name 
+            )
+          }
+          console.log(filteredData)
           break;
       }
-
+      filteredData = filteredData.sort((a, b) => {
+        if (a.year === null) return -1; 
+        if (b.year === null) return 1; 
+        return a.year - b.year;
+      });
       setSearchResult(filteredData);
       setResultType(filteredData.length == 0 ? 'ng-text' : 'ok');
     }
