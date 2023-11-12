@@ -14,7 +14,7 @@ export const MainPage = (): JSX.Element => {
   const navigateResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (searchKeyword) 
-      navigate(`/result?name=${searchKeyword}&type=text`);
+      navigate(`/result?name=${encodeURIComponent(searchKeyword)}&type=text`);
   }
 
   useEffect(() => {
