@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { SearchBar, MasonryView, ToggleChip } from "@/components";
 import { ItemProps } from "@/types";
-import { addHash, includeByCho } from "@/utils";
+import { addHash, includeByCho, containNoCase } from "@/utils";
 import metadata, { sortedmemeData } from "@/memedata"
 import "./style.css";
 
@@ -50,7 +50,7 @@ export const ResultPage = (): JSX.Element => {
               || includeByCho(name, item.tag2)
             );
           } else {
-            filteredData = sortedmetadata.filter((item) => item.title.indexOf(name) >= 0
+            filteredData = sortedmetadata.filter((item) => containNoCase(item.title, name)
               || item.tag1 === name
               || item.tag2 === name
             )

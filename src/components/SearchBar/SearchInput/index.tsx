@@ -1,6 +1,6 @@
 import { ChangeEvent, useState, useEffect, useMemo } from "react";
 import { AutoComplete } from "./AutoComplete";
-import { includeByCho } from "@/utils";
+import { includeByCho, containNoCase } from "@/utils";
 import metadata, { tagtitleData } from "@/memedata"
 import "./style.css";
 
@@ -31,7 +31,7 @@ export const SearchInput = ({ placeholder, searchKeyword, setSearchKeyword }: Se
     if (/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(searchKeyword)) {
       newSuggestions = totalTagTitleList.filter((item) => includeByCho(searchKeyword, item));
     } else {
-      newSuggestions = totalTagTitleList.filter((item) => item.indexOf(searchKeyword) >= 0);
+      newSuggestions = totalTagTitleList.filter((item) => containNoCase(item, searchKeyword));
     }
     setSuggestions(newSuggestions.slice(0, 10));
   }, [searchKeyword])

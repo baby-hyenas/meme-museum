@@ -7,6 +7,9 @@ export const removeHash = (str: string): string => {
   return str.replace(/^#/, '');
 };
 
+export const containNoCase = (base: string, compare: string) =>
+  base.toLocaleLowerCase().indexOf(compare.toLocaleLowerCase()) >= 0;
+
 export const includeByCho = (search : string, targetWord : string) => {
   return makeRegexByCho(search).test(targetWord);
 }
