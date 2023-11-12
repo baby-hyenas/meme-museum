@@ -12,13 +12,14 @@ export const includeByCho = (search : string, targetWord : string) => {
 }
 
 export const makeRegexByCho = (search = "")  => {
+  const escapedSearch = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const regex = CHO_HANGUL.reduce(
     (acc, cho, index) =>
       acc.replace(
         new RegExp(cho, "g"),
         `[${combine(index, 0, 0)}-${combine(index + 1, 0, -1)}]`
       ),
-    search
+      escapedSearch
   );
   
   return new RegExp(`(${regex})`, "g");
