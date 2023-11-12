@@ -12,14 +12,14 @@ type SearchBarProps = {
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onSubmit, searchKeyword, setSearchKeyword }: SearchBarProps) => {
-
   return (
     <form className="search-bar" onSubmit={onSubmit}>
       <div className="search-input">
         <SearchInput
           placeholder={placeholder}
           searchKeyword={searchKeyword}
-          setSearchKeyword={setSearchKeyword} />
+          setSearchKeyword={setSearchKeyword}
+        />
       </div>
       <div className="search-button">
         <SearchButton />

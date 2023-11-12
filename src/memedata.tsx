@@ -62,6 +62,12 @@ export const tagData = () => {
   return [...tagSet];
 }
 
+export const tagtitleData = () => {
+  const tagtitleSet = new Set(memedata.flatMap(meme => [meme.tag1, meme.tag2, meme.title]));
+  tagtitleSet.delete("");
+  return [...tagtitleSet];
+}
+
 export const getRandomTag = (count: number, tags: string[]): string[] => {
   if (count >= tags.length)
     return tags;
